@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: taqi <taqi@student.42.fr>                  +#+  +:+       +#+         #
+#    By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 14:37:38 by taqi              #+#    #+#              #
-#    Updated: 2025/02/14 13:21:05 by taqi             ###   ########.fr        #
+#    Updated: 2025/02/15 16:48:48 by oettaqi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ MLX         = $(MLX_PATH)$(MLX_NAME)
 INC         = -I ./includes/ -I ./minilibx-linux/
 
 # Sources
-SRC         = test1.c 
+SRC         = test2.c 
 SRCS        = $(SRC)
 
 # Objects
