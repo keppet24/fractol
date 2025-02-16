@@ -6,7 +6,7 @@
 #    By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 14:37:38 by taqi              #+#    #+#              #
-#    Updated: 2025/02/15 16:48:48 by oettaqi          ###   ########.fr        #
+#    Updated: 2025/02/16 15:13:13 by oettaqi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,11 @@ MLX_NAME    = libmlx.a
 MLX         = $(MLX_PATH)$(MLX_NAME)
 
 # Includes
-INC         = -I ./includes/ -I ./minilibx-linux/
+INC = -I ./includes/ -I ./minilibx-linux/ -I .
+
 
 # Sources
-SRC         = test2.c 
+SRC         = parsing/parsing.c parsing/utils_parsing.c  parsing/verif_input.c  parsing/ft_atod.c  main.c
 SRCS        = $(SRC)
 
 # Objects
@@ -36,8 +37,9 @@ OBJS        = $(addprefix $(OBJ_PATH), $(OBJ))
 
 all: $(MLX) $(NAME)
 
+# Pour compiler les fichiers objets, on crée le dossier contenant $@ (ex: obj/parsing/)
 $(OBJ_PATH)%.o: %.c
-	@mkdir -p $(OBJ_PATH)
+	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
 $(MLX):
