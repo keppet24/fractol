@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 10:14:27 by taqi              #+#    #+#             */
-/*   Updated: 2025/02/18 16:14:11 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 18:38:35 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ int	main(int ac, char **av)
 	{
 		draw_fractal_mandelbrot(&d);
 		mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->img_ptr, 0, 0);
+		handling_event(&d);
 	}
 	else
 	{
 		draw_fractal_julia(&d);
 		mlx_put_image_to_window(d->mlx_ptr, d->win_ptr, d->img_ptr, 0, 0);
+		handling_event(&d);
 	}
-	// handling_events();
 	// close_function();
 	mlx_loop(d->mlx_ptr);
 	//free(d);

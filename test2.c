@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:48:35 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/18 13:52:21 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 17:16:00 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,13 +119,13 @@ int mouse_hook(int button, int x, int y, t_data *data)
         factor = 1.1;
     else
         return (0);
+    data->x1 = data->x1 * factor;
 
     // Zoom centré sur la position de la souris
     data->x1 = mouse_re + (data->x1 - mouse_re) * factor;
     data->x2 = mouse_re + (data->x2 - mouse_re) * factor;
     data->y1 = mouse_im + (data->y1 - mouse_im) * factor;
     data->y2 = mouse_im + (data->y2 - mouse_im) * factor;
-
     mlx_clear_window(data->mlx_ptr, data->win_ptr);
     draw_fractal(data);
     mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);

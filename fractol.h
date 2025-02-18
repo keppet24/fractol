@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:39:29 by taqi              #+#    #+#             */
-/*   Updated: 2025/02/18 16:16:42 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 17:39:22 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,8 @@ void	iterate_complex(t_data **d, int *i, double *tmp);
 //draw_fractal_julia.c
 void	draw_fractal_julia(t_data **d);
 
+//DOSSIER HANDLING_EVENT
+// handling_event.c
+void	handling_event(t_data **d);
 
 #endif

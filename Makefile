@@ -6,7 +6,7 @@
 #    By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 14:37:38 by taqi              #+#    #+#              #
-#    Updated: 2025/02/18 16:10:35 by oettaqi          ###   ########.fr        #
+#    Updated: 2025/02/18 18:12:47 by oettaqi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ INC = -I ./includes/ -I ./minilibx-linux/ -I .
 
 
 # Sources
-SRC         = parsing/parsing.c parsing/utils_parsing.c  parsing/verif_input.c  parsing/ft_atod.c  main.c window_image_init.c draw_fractal_mandelbrot.c draw_fractal_julia.c
+SRC         = parsing/parsing.c parsing/utils_parsing.c  parsing/verif_input.c  parsing/ft_atod.c  main.c window_image_init.c draw_fractal_mandelbrot.c draw_fractal_julia.c handling_event.c
 SRCS        = $(SRC)
 
 # Objects
@@ -40,7 +40,7 @@ all: $(MLX) $(NAME)
 # Pour compiler les fichiers objets, on crée le dossier contenant $@ (ex: obj/parsing/)
 $(OBJ_PATH)%.o: %.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	@$(CC) $(CFLAGS) -g3 -c $< -o $@ $(INC)
 
 $(MLX):
 	@echo "Making MiniLibX..."
