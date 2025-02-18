@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 12:23:37 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/16 15:14:33 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 16:17:05 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	is_digit(char c)
 	return (0);
 }
 
-void	verif_input_1_user(char *input_1, t_data *d)
+void	verif_input_1_user(char *input_1, t_data **d)
 {
 	char	*p;
 
@@ -55,7 +55,7 @@ void	verif_input_1_user(char *input_1, t_data *d)
 		display_error_and_exit(d);
 }
 
-void	verif_input_2_user(char *input_2, t_data *d)
+void	verif_input_2_user(char *input_2, t_data **d)
 {
 	char	*p;
 

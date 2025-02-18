@@ -1,52 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_fractal_mandelbrot.c                          :+:      :+:    :+:   */
+/*   draw_fractal_julia.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 11:33:29 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/18 16:36:56 by oettaqi          ###   ########.fr       */
+/*   Created: 2025/02/18 15:49:32 by oettaqi           #+#    #+#             */
+/*   Updated: 2025/02/18 16:54:16 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	my_mlx_pixel_put(t_data **d, int y, int x, int color)
-{
-	char	*dst;
+#include "fractol.h"
 
-	dst = (*d)->addr + (y * (*d)->line_length + x * ((*d)->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
-
-void	initialise_complex(t_data **d, int py, int px)
+void	initialise_z(t_data **d, int py, int px)
 {
 	double	zoom_x;
 	double	zoom_y;
 
 	zoom_x = (double)(*d)->img_width / ((*d)->x2 - (*d)->x1);
 	zoom_y = (double)(*d)->img_height / ((*d)->y2 - (*d)->y1);
-	(*d)->c_r = px / zoom_x + (*d)->x1;
-	(*d)->c_i = py / zoom_y + (*d)->y1;
-	(*d)->z_r = 0;
-	(*d)->z_i = 0;
+	(*d)->z_r = px / zoom_x + (*d)->x1;
+	(*d)->z_i = py / zoom_y + (*d)->y1;
 }
 
-void	iterate_complex(t_data **d, int *i, double *tmp)
-{
-	*tmp = (*d)->z_r;
-	(*d)->z_r = (*d)->z_r * (*d)->z_r - (*d)->z_i * (*d)->z_i + (*d)->c_r;
-	(*d)->z_i = 2 * (*d)->z_i * *tmp + (*d)->c_i;
-	(*i)++;
-}
-
-void	color_fractal(t_data **d, int py, int px, int i)
-{	
-	my_mlx_pixel_put(d, py, px, i * 0x00829b);
-}
-
-void	draw_fractal_mandelbrot(t_data **d)
+void	draw_fractal_julia(t_data **d)
 {
 	double	tmp;
 	int		py;
@@ -54,14 +33,13 @@ void	draw_fractal_mandelbrot(t_data **d)
 	int		i;
 
 	py = 0;
-	i = 0;
 	while (py < (*d)->img_height)
 	{
 		px = -1;
 		while (++px < (*d)->img_width)
 		{
 			i = 0;
-			initialise_complex(d, py, px);
+			initialise_z(d, py, px);
 			tmp = (*d)->z_r;
 			while (((*d)->z_r * (*d)->z_r + (*d)->z_i * (*d)->z_i < 4)
 				&& (i < (*d)->iteration_max))

@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 11:12:21 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/16 14:38:18 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 16:17:14 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_putstr(char *str)
 	}
 }
 
-void	display_error_and_exit(t_data *d)
+void	display_error_and_exit(t_data **d)
 {
 	ft_putstr("Erreur\n");
 	ft_putstr("Pour mandelbrot :\n");
