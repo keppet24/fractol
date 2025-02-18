@@ -6,7 +6,7 @@
 #    By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 14:37:38 by taqi              #+#    #+#              #
-#    Updated: 2025/02/16 15:13:13 by oettaqi          ###   ########.fr        #
+#    Updated: 2025/02/18 12:54:57 by oettaqi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME    = fractol
 
 # Compiler
 CC      = cc
-#CFLAGS  = -Werror -Wextra -Wall
+CFLAGS  = -Werror -Wextra -Wall
 
 # Minilibx
 MLX_PATH    = minilibx-linux/
@@ -27,7 +27,7 @@ INC = -I ./includes/ -I ./minilibx-linux/ -I .
 
 
 # Sources
-SRC         = parsing/parsing.c parsing/utils_parsing.c  parsing/verif_input.c  parsing/ft_atod.c  main.c
+SRC         = parsing/parsing.c parsing/utils_parsing.c  parsing/verif_input.c  parsing/ft_atod.c  main.c window_image_init.c draw_fractal_mandelbrot.c
 SRCS        = $(SRC)
 
 # Objects

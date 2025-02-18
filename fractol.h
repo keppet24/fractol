@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 14:39:29 by taqi              #+#    #+#             */
-/*   Updated: 2025/02/16 14:36:21 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 12:56:11 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,18 @@
 # include <mlx.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 
 typedef struct s_data
 {
 	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_ptr;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+
 	int		is_julia;
 	int		is_mandelbrot;
 	double	x1;
@@ -28,9 +36,19 @@ typedef struct s_data
 	double	y2;
 	int		img_width;
 	int		img_height;
+	int		iteration_max;
 
 	double	julia_cr;
 	double	julia_ci;
+	double	z_r;
+	double	z_i;
+	double	c_r;
+	double	c_i;
+
+	double	t;
+	int		r;
+	int		g;
+	int		b;	
 }				t_data;
 
 // DOSSIER PARSING
@@ -54,5 +72,13 @@ void	initialise_julia(t_data *d, char **av, int ac);
 
 //ft_atod.c
 double	ft_atod(char *str);
+
+// FICHIER WINDOW_IMAGE_INIT.C
+void	window_and_image_init(t_data **d);
+
+// DOSSIER DRAW
+// draw_fractal_mandelbrot.c
+void	draw_fractal_mandelbrot(t_data **d);
+void	color_fractal(t_data **d, int py, int px, int i);
 
 #endif

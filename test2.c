@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 16:48:35 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/15 18:20:03 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 13:52:21 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_data {
     double  julia_ci;     // constante imaginaire pour Julia
 }   t_data;
 
-void my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void my_mlx_pixel_put(t_data *data, int y, int x, int color)
 {
     char *dst;
 
