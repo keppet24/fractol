@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:18:01 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/19 08:38:47 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/19 08:54:27 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ int	mouse_hook(int button, int x, int y, t_data **d)
 	return (0);
 }
 
-
-
-
 int	key_hook(int keycode, t_data **d)
 {
 	if (keycode == 65307)
@@ -60,7 +57,6 @@ int	key_hook(int keycode, t_data **d)
 	}
 	return (0);
 }
-
 
 int	close_window(t_data **d)
 {
