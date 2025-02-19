@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:21:36 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/18 12:17:35 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/19 08:01:15 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void window_and_image_init(t_data **d)
 {
 	(*d)->img_height = 600;
 	(*d)->img_width = 800;
-	(*d)->iteration_max = 2000;
+	(*d)->iteration_max = 20;
 	(*d)->mlx_ptr = mlx_init();
 	(*d)->win_ptr = mlx_new_window((*d)->mlx_ptr, (*d)->img_width, (*d)->img_height, "Fractol");
 	(*d)->img_ptr = mlx_new_image((*d)->mlx_ptr, (*d)->img_width, (*d)->img_height);

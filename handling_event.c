@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:18:01 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/18 18:59:36 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/19 08:38:47 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ int	mouse_hook(int button, int x, int y, t_data **d)
 {
 	double	factor;
 
-
-	printf("helooooooo\n");
 	x = 0;
-	y = 0;	
+	y = 0;
 	if (button == 4)
 		factor = 0.9;
 	else if (button == 5)
@@ -39,22 +37,47 @@ int	mouse_hook(int button, int x, int y, t_data **d)
 	return (0);
 }
 
+
+
+
 int	key_hook(int keycode, t_data **d)
 {
 	if (keycode == 65307)
 	{
-		mlx_destroy_image((*d)->mlx_ptr, (*d)->img_ptr);
-		mlx_destroy_window((*d)->mlx_ptr, (*d)->win_ptr);
+		if ((*d)->img_ptr)
+			mlx_destroy_image((*d)->mlx_ptr, (*d)->img_ptr);
+		if ((*d)->win_ptr)
+			mlx_destroy_window((*d)->mlx_ptr, (*d)->win_ptr);
+		if ((*d)->mlx_ptr)
+		{
+			mlx_loop_end((*d)->mlx_ptr);
+			mlx_destroy_display((*d)->mlx_ptr);
+			free((*d)->mlx_ptr);
+		}
+		free(*d);
+		*d = NULL;
 		exit(0);
 	}
 	return (0);
 }
 
+
 int	close_window(t_data **d)
 {
-	mlx_destroy_image((*d)->mlx_ptr, (*d)->img_ptr);
-	mlx_destroy_window((*d)->mlx_ptr, (*d)->win_ptr);
+	if ((*d)->img_ptr)
+		mlx_destroy_image((*d)->mlx_ptr, (*d)->img_ptr);
+	if ((*d)->win_ptr)
+		mlx_destroy_window((*d)->mlx_ptr, (*d)->win_ptr);
+	if ((*d)->mlx_ptr)
+	{
+		mlx_loop_end((*d)->mlx_ptr);
+		mlx_destroy_display((*d)->mlx_ptr);
+		free((*d)->mlx_ptr);
+	}
+	free(*d);
+	*d = NULL;
 	exit(0);
+	return (0);
 }
 
 void	handling_event(t_data **d)

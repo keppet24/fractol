@@ -6,7 +6,7 @@
 /*   By: oettaqi <oettaqi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:33:29 by oettaqi           #+#    #+#             */
-/*   Updated: 2025/02/18 16:36:56 by oettaqi          ###   ########.fr       */
+/*   Updated: 2025/02/18 20:57:57 by oettaqi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	iterate_complex(t_data **d, int *i, double *tmp)
 
 void	color_fractal(t_data **d, int py, int px, int i)
 {	
-	my_mlx_pixel_put(d, py, px, i * 0x00829b);
+	my_mlx_pixel_put(d, py, px, i * 0xafb3b);
 }
 
 void	draw_fractal_mandelbrot(t_data **d)
